@@ -1,38 +1,49 @@
 require 'pry'
 # Write your code here.
 def dictionary
-  subWords = {"hello" => 'hi',
-"to" => '2',
-"too" => '2',
-"for" => '4',
-"four" => '4',
-"be" => 'b',
-'you' => 'u',
-"at" => "@" }
-
-subWords.keys
+  subWords = {"hello" => "hi",
+"to" => "2",
+"too" => "2",
+"for" => "4",
+"four" => "4",
+"be" => "b",
+'you' => "u",
+"at" => "@",
+"and" => "&"
+}
 end
 
-def word_substituter(tweet)
-  tweet.split(" ").each do |word|
-    if word == subWords.keys
-      
-    binding.pry
-    end
+ def word_substituter(tweet)
+   dictionary
+  tweetArr = tweet.split(" ")
   
+  tweetArr.collect do |word|
+    dictionary.collect do |k, v|
+      if word == k
+         word.replace(v)
+      end
+     end
+    end
+      tweetArr.join(" ")
+  end
+
+ 
   ##traverse through this Array
   ##if word is equal to key, then replace it with the object key
-  binding.pry
+
+
+def bulk_tweet_shortener(tweetArr)
+   tweetArr.collect do |tweet|
+    puts word_substituter(tweet)
+   end
 end
 
-def bulk_tweet_shortner
+def selective_tweet_shortener(tweetArr)
   
-end
-
-def selective_tweet_shortener
   
 end
 
 def shortened_tweet_truncator
+  
   
 end
