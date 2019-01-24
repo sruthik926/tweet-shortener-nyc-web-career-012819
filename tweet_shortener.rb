@@ -19,7 +19,7 @@ end
   
   tweetArr.collect do |word|
     dictionary.collect do |k, v|
-      if word == k
+      if word.downcase == k
          word.replace(v)
       end
      end
